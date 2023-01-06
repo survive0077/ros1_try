@@ -4,7 +4,7 @@ import rospy
 import sys
 import actionlib
 from actionlib import SimpleActionClient
-from action.msg import addintsGoal, addintsFeedback, addintsResult, addintsAction
+from action.msg import addintsGoal, addintsAction
 
 
 def done_cb(state, result):

@@ -27,6 +27,7 @@ class myAction:
         result.result = sum
         self.server.set_succeeded(result)
 
+
 if __name__ == "__main__":
     rospy.init_node("ser_p")
     ser = myAction()
