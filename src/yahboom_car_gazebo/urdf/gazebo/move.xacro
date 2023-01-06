@@ -37,7 +37,10 @@
             <odometryFrame>odom</odometryFrame> 
             <odometryTopic>odom</odometryTopic> <!-- 里程计话题 -->
             <robotBaseFrame>base_footprint</robotBaseFrame> <!-- 根坐标系 -->
-            <broadcastTF>false</broadcastTF>
+            <broadcastTF>1</broadcastTF>
+            <publishTf>1</publishTf>
+            <publishWheelJointState>true</publishWheelJointState>
+            <alwaysOn>true</alwaysOn>
         </plugin>
     </gazebo>
 
