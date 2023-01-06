@@ -1,0 +1,4 @@
+<launch>
+    <rosparam command="dump" file="$(find launch_basic)/launch/param_out.yaml"/>
+    <rosparam command="delete" param="bkg_B"/>
+</launch>

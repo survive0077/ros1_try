@@ -1,0 +1,2 @@
+set(action_MESSAGE_FILES "/home/yxj/code/ros1_try/devel/share/action/msg/addintsAction.msg;/home/yxj/code/ros1_try/devel/share/action/msg/addintsActionGoal.msg;/home/yxj/code/ros1_try/devel/share/action/msg/addintsActionResult.msg;/home/yxj/code/ros1_try/devel/share/action/msg/addintsActionFeedback.msg;/home/yxj/code/ros1_try/devel/share/action/msg/addintsGoal.msg;/home/yxj/code/ros1_try/devel/share/action/msg/addintsResult.msg;/home/yxj/code/ros1_try/devel/share/action/msg/addintsFeedback.msg")
+set(action_SERVICE_FILES "")

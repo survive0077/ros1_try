@@ -1,0 +1,8 @@
+prefix=/home/yxj/code/ros1_try/install
+
+Name: set_param_name
+Description: Description of set_param_name
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

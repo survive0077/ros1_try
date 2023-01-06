@@ -1,0 +1,8 @@
+prefix=/home/yxj/code/ros1_try/devel
+
+Name: slam_demo
+Description: Description of slam_demo
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

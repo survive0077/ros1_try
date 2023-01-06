@@ -1,0 +1,4 @@
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="my_car">
+    <xacro:include filename="field.xacro"/>
+    <xacro:include filename="macro.xacro"/>
+</robot>

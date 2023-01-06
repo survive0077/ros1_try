@@ -1,0 +1,11 @@
+<launch>
+    <node pkg="turtlesim" type="turtlesim_node" name="turtle1" output="screen"/>
+    <node pkg="turtlesim" type="turtle_teleop_key" name="key" output="screen"/>
+    <node pkg="turtle_follow" type="create_turtle" name="turtle2" args="1 4 1.57 turtle2" output="screen"/>
+    <!-- 动态传参复用发布者消息 -->
+    <node pkg="turtle_follow" type="pub_turtle" name="pub1" args="turtle1" output="screen"/>
+    <node pkg="turtle_follow" type="pub_turtle" name="pub2" args="turtle2" output="screen"/>
+
+    <node pkg="turtle_follow" type="turtle_follow" name="follow" args="turtle2 turtle1" output="screen"/>
+
+</launch>

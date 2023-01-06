@@ -1,0 +1,10 @@
+<launch>
+    <!-- 启动rviz -->
+    <node pkg="joint_state_publisher" name="joint_state_publisher" type="joint_state_publisher" />
+    <node pkg="robot_state_publisher" name="robot_state_publisher" type="robot_state_publisher" />
+    <node pkg="rviz" type="rviz" name="rviz" args="-d $(find slam_demo)/config/amcl.rviz"/>
+    <!-- 启动地图服务 -->
+    <include file="$(find slam_demo)/launch/map_read.launch"/>
+    <!-- 启动amcl -->
+    <include file="$(find slam_demo)/launch/amcl.launch"/>
+</launch>

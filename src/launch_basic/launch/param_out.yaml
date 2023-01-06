@@ -1,0 +1,36 @@
+bkg_B: 100
+bkg_G: 110
+bkg_R: 120
+param_A: 100
+rosdistro: 'noetic
+
+  '
+roslaunch:
+  uris:
+    host_yxj_itx__33451: http://yxj-ITX:33451/
+    host_yxj_itx__33705: http://yxj-ITX:33705/
+    host_yxj_itx__34771: http://yxj-ITX:34771/
+    host_yxj_itx__35573: http://yxj-ITX:35573/
+    host_yxj_itx__37331: http://yxj-ITX:37331/
+    host_yxj_itx__39801: http://yxj-ITX:39801/
+    host_yxj_itx__40919: http://yxj-ITX:40919/
+    host_yxj_itx__41751: http://yxj-ITX:41751/
+    host_yxj_itx__42843: http://yxj-ITX:42843/
+    host_yxj_itx__43985: http://yxj-ITX:43985/
+    host_yxj_itx__45711: http://yxj-ITX:45711/
+rosversion: '1.15.15
+
+  '
+run_id: 5896c340-8430-11ed-9b29-3f275e606775
+turtle1:
+  background_b: 255
+  background_g: 86
+  background_r: 69
+  bkg_B: 100
+  bkg_G: 110
+  bkg_R: 120
+  param_B: 3.14
+turtlesim:
+  background_b: 255
+  background_g: 86
+  background_r: 69

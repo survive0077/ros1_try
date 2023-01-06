@@ -1,0 +1,8 @@
+<launch>
+    <!-- 全局 -->
+    <param name="param_A" type="int" value="100"/>
+    <node pkg="turtlesim" type="turtlesim_node" name="turtle1" output="screen" >
+        <!-- 私有 -->
+        <param name="param_B" type="double" value="3.14"/>
+    </node>
+</launch>

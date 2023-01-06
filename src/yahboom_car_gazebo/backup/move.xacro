@@ -1,0 +1,44 @@
+<robot name="my_car_move" xmlns:xacro="http://wiki.ros.org/xacro">
+
+    <!-- 传动实现:用于连接控制器与关节 -->
+    <xacro:macro name="joint_trans" params="joint_name">
+        <!-- Transmission is important to link the joints and the controller -->
+        <transmission name="${joint_name}_trans">
+            <type>transmission_interface/SimpleTransmission</type>
+            <joint name="${joint_name}">
+                <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+            </joint>
+            <actuator name="${joint_name}_motor">
+                <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+                <mechanicalReduction>1</mechanicalReduction>
+            </actuator>
+        </transmission>
+    </xacro:macro>
+
+    <!-- 每一个驱动轮都需要配置传动装置 -->
+    <xacro:joint_trans joint_name="${ns}/front_right_joint" />
+    <xacro:joint_trans joint_name="${ns}/front_left_joint" />
+    <xacro:joint_trans joint_name="${ns}/back_left_joint" />
+    <xacro:joint_trans joint_name="${ns}/back_right_joint" />
+
+    <!-- 控制器 -->
+    <gazebo>
+        <plugin name="skid_steer_drive_controller" filename="libgazebo_ros_skid_steer_drive.so">
+            <updateRate>100.0</updateRate>
+            <robotNamespace>${ns}</robotNamespace>
+            <leftFrontJoint>${ns}/front_left_joint</leftFrontJoint>
+            <rightFrontJoint>${ns}/front_right_joint</rightFrontJoint>
+            <leftRearJoint>${ns}/back_left_joint</leftRearJoint>
+            <rightRearJoint>${ns}/back_right_joint</rightRearJoint>
+            <wheelSeparation>0.4</wheelSeparation>
+            <wheelDiameter>0.1</wheelDiameter>
+            <torque>2</torque>
+            <commandTopic>cmd_vel</commandTopic> <!-- 运动控制话题 -->
+            <odometryFrame>odom</odometryFrame> 
+            <odometryTopic>odom</odometryTopic> <!-- 里程计话题 -->
+            <robotBaseFrame>${ns}/base_footprint</robotBaseFrame> <!-- 根坐标系 -->
+            <broadcastTF>false</broadcastTF>
+        </plugin>
+    </gazebo>
+
+</robot>

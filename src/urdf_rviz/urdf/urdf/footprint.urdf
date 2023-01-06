@@ -1,0 +1,59 @@
+<robot name="mycar">
+    <!-- 添加极小的footprint，使footprint位于世界坐标系中心点，从而避免底盘下沉到中心点-->
+    <!-- 关节高度为半个base_link高度 -->
+    <link name="base_footprint">
+        <visual>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <sphere radius="0.001"/>
+            </geometry>
+            <material name="car_colour">
+                <color rgba="0.8 0.5 0.0 0.5"/>
+            </material>
+        </visual>
+    </link>
+    <!-- 底盘link -->
+    <link name="base_link">
+        <visual>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <box size="0.3 0.2 0.1"/>
+            </geometry>
+            <material name="car_colour">
+                <color rgba="0.8 0.5 0.0 0.5"/>
+            </material>
+        </visual>
+    </link>
+    <!-- 摄像头link -->
+    <link name="camera">
+        <visual>
+            <origin xyz="0.0 0.0 0.025" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <box size="0.02 0.05 0.05"/>
+            </geometry>
+            <material name="footprint_colour">
+                <color rgba="0.0 0.0 1.0 0.5"/>
+            </material>
+        </visual>
+    </link>
+    <!-- base_footprint和base_link之间的关节 -->
+    <joint name="link2footprint" type="fixed">
+        <!-- 父级link -->
+        <parent link="base_footprint"/>
+        <!-- 子级link -->
+        <child link="base_link"/>
+        <!-- 设置偏移量，默认在父级的中心点 -->
+        <origin xyz="0.0 0.0 0.05" rpy="0.0 0.0 0.0"/>
+    </joint>
+    <!-- joint -->
+    <joint name="camera2base" type="continuous">
+        <!-- 父级link -->
+        <parent link="base_link"/>
+        <!-- 子级link -->
+        <child link="camera"/>
+        <!-- 设置偏移量，默认在父级的中心点 -->
+        <origin xyz="0.12 0.0 0.05" rpy="0.0 0.0 0.0"/>
+        <!-- 设置关节旋转轴 -->
+        <axis xyz="0.0 0.0 1"/>
+    </joint>
+</robot>

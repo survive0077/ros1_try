@@ -1,0 +1,4 @@
+<launch>
+    <include file="$(find slam_demo)/launch/slam.launch"/>
+    <include file="$(find slam_demo)/launch/path.launch"/>
+</launch>

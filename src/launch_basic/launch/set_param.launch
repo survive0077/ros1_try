@@ -1,0 +1,8 @@
+<launch>
+    <rosparam command="load" file="$(find launch_basic)/launch/param.yaml"/>
+    <param name="param_A" type="int" value="100"/>
+    <node pkg="turtlesim" type="turtlesim_node" name="turtle1" output="screen" >
+        <rosparam command="load" file="$(find launch_basic)/launch/param.yaml"/>
+        <param name="param_B" type="double" value="3.14"/>
+    </node>
+</launch>
