@@ -16,28 +16,32 @@
     </xacro:macro>
 
     <!-- 每一个驱动轮都需要配置传动装置 -->
-    <xacro:joint_trans joint_name="${ns}/front_right_joint" />
-    <xacro:joint_trans joint_name="${ns}/front_left_joint" />
-    <xacro:joint_trans joint_name="${ns}/back_left_joint" />
-    <xacro:joint_trans joint_name="${ns}/back_right_joint" />
+    <xacro:joint_trans joint_name="front_right_joint" />
+    <xacro:joint_trans joint_name="front_left_joint" />
+    <xacro:joint_trans joint_name="back_left_joint" />
+    <xacro:joint_trans joint_name="back_right_joint" />
 
     <!-- 控制器 -->
     <gazebo>
-        <plugin name="skid_steer_drive_controller" filename="libgazebo_ros_skid_steer_drive.so">
+        <!-- 麦克纳姆轮设置 -->
+        <plugin name="mecanum_controller" filename="libgazebo_ros_planar_move.so">
             <updateRate>100.0</updateRate>
-            <robotNamespace>${ns}</robotNamespace>
-            <leftFrontJoint>${ns}/front_left_joint</leftFrontJoint>
-            <rightFrontJoint>${ns}/front_right_joint</rightFrontJoint>
-            <leftRearJoint>${ns}/back_left_joint</leftRearJoint>
-            <rightRearJoint>${ns}/back_right_joint</rightRearJoint>
+            <robotNamespace>${ns}/</robotNamespace>
+            <leftFrontJoint>front_left_joint</leftFrontJoint>
+            <rightFrontJoint>front_right_joint</rightFrontJoint>
+            <leftRearJoint>back_left_joint</leftRearJoint>
+            <rightRearJoint>back_right_joint</rightRearJoint>
             <wheelSeparation>0.4</wheelSeparation>
             <wheelDiameter>0.1</wheelDiameter>
             <torque>2</torque>
             <commandTopic>cmd_vel</commandTopic> <!-- 运动控制话题 -->
             <odometryFrame>odom</odometryFrame> 
             <odometryTopic>odom</odometryTopic> <!-- 里程计话题 -->
-            <robotBaseFrame>${ns}/base_footprint</robotBaseFrame> <!-- 根坐标系 -->
-            <broadcastTF>false</broadcastTF>
+            <robotBaseFrame>base_footprint</robotBaseFrame> <!-- 根坐标系 -->
+            <broadcastTF>1</broadcastTF>
+            <publishTf>1</publishTf>
+            <publishWheelJointState>true</publishWheelJointState>
+            <alwaysOn>true</alwaysOn>
         </plugin>
     </gazebo>
 

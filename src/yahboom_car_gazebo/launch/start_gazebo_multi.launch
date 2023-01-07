@@ -1,0 +1,54 @@
+<launch>
+    <!-- 启动gazebo -->
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+        <arg name="world_name" value="$(find urdf_gazebo)/worlds/box_house.world"/>
+    </include>
+
+    <!-- 键盘控制car1 -->
+    <node pkg="teleop_twist_keyboard" type="teleop_twist_keyboard.py" name="teleop_twist_keyboard" output="screen">
+        <remap from="cmd_vel" to="/car1/cmd_vel"/>
+    </node>
+
+    <group ns="car1">
+        <!-- 参数服务器载入urdf -->
+        <arg name="ns" default="car1"/>
+        <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find yahboom_car_gazebo)/urdf/multi/car.xacro' ns:=$(arg ns)"/>
+        <!-- <param name="robot_description" textfile="$(find yahboom_car_gazebo)/urdf/car.urdf"/> -->
+        <node pkg="rostopic" type="rostopic" name="fake_joint_calibration" args="pub /calibrated std_msgs/Bool true"/>
+        <!-- 防止小车base_footpoint与base_link分离 -->
+        <node pkg="tf2_ros" type="static_transform_publisher" name="tf_footprint_base" args="0 0 0 0 0 0 base_link base_footprint"/>
+        <!-- base_footpoint坐标变换到map并广播 -->
+        <node pkg="tf2_ros" type="static_transform_publisher" name="tf_footprint_map" args="0 0 0 0 0 0 map base_footprint"/>
+        <!-- gazebo导入机器人模型 -->
+        <node pkg="gazebo_ros" type="spawn_model" name="spawn_model" args="-urdf -model car1 -param robot_description -x 1"/>
+    </group>
+
+    <group ns="car2">
+        <!-- 参数服务器载入urdf -->
+        <arg name="ns" default="car2"/>
+        <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find yahboom_car_gazebo)/urdf/multi/car.xacro' ns:=$(arg ns)"/>
+        <!-- <param name="robot_description" textfile="$(find yahboom_car_gazebo)/urdf/car.urdf"/> -->
+        <node pkg="rostopic" type="rostopic" name="fake_joint_calibration" args="pub /calibrated std_msgs/Bool true"/>
+        <!-- 防止小车base_footpoint与base_link分离 -->
+        <node pkg="tf2_ros" type="static_transform_publisher" name="tf_footprint_base" args="0 0 0 0 0 0 base_link base_footprint"/>
+        <!-- base_footpoint坐标变换到map并广播 -->
+        <node pkg="tf2_ros" type="static_transform_publisher" name="tf_footprint_map" args="0 0 0 0 0 0 map base_footprint"/>
+        <!-- gazebo导入机器人模型 -->
+        <node pkg="gazebo_ros" type="spawn_model" name="spawn_model" args="-urdf -model car2 -param robot_description -x -1"/>
+    </group>
+
+    <group ns="car3">
+        <!-- 参数服务器载入urdf -->
+        <arg name="ns" default="car3"/>
+        <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find yahboom_car_gazebo)/urdf/multi/car.xacro' ns:=$(arg ns)"/>
+        <!-- <param name="robot_description" textfile="$(find yahboom_car_gazebo)/urdf/car.urdf"/> -->
+        <node pkg="rostopic" type="rostopic" name="fake_joint_calibration" args="pub /calibrated std_msgs/Bool true"/>
+        <!-- 防止小车base_footpoint与base_link分离 -->
+        <node pkg="tf2_ros" type="static_transform_publisher" name="tf_footprint_base" args="0 0 0 0 0 0 base_link base_footprint"/>
+        <!-- base_footpoint坐标变换到map并广播 -->
+        <node pkg="tf2_ros" type="static_transform_publisher" name="tf_footprint_map" args="0 0 0 0 0 0 map base_footprint"/>
+        <!-- gazebo导入机器人模型 -->
+        <node pkg="gazebo_ros" type="spawn_model" name="spawn_model" args="-urdf -model car3 -param robot_description -x -3"/>
+    </group>
+    
+</launch>
