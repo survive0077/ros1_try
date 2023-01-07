@@ -1,8 +1,0 @@
-prefix=/home/yxj/code/ros1_try/install
-
-Name: try_rosbag
-Description: Description of try_rosbag
-Version: 0.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 

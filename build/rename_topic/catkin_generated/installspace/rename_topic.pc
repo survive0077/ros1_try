@@ -1,8 +1,0 @@
-prefix=/home/yxj/code/ros1_try/install
-
-Name: rename_topic
-Description: Description of rename_topic
-Version: 0.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 

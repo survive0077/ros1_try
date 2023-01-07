@@ -1,8 +1,0 @@
-# 目标数据变量
-int32 num
----
-# 最终返回变量
-int32 result
----
-# 连续返回变量
-float64 percent

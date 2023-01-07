@@ -1,8 +1,0 @@
-prefix=/home/yxj/code/ros1_try/install
-
-Name: c_head
-Description: Description of c_head
-Version: 0.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 
