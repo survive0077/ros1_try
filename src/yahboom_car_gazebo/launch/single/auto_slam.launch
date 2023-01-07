@@ -1,4 +1,0 @@
-<launch>
-    <include file="$(find yahboom_car_gazebo)/launch/single/slam.launch"/>
-    <include file="$(find yahboom_car_gazebo)/launch/single/path.launch"/>
-</launch>
