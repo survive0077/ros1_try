@@ -1,2 +1,2 @@
-action:c_head:c_head_main:helloworld:launch_basic:my_assemble:param_server:pub_sub:rename_topic:ser_cli:set_param_name:slam_demo:test_turtle:tf_dynamic:tf_multi:tf_static:try_api:try_rosbag:turtle_follow:urdf_gazebo:urdf_rviz:use_msg:yahboom_car_gazebo
+action:c_head:c_head_main:helloworld:launch_basic:my_assemble:param_server:pub_sub:reconfigure_dynamic:rename_topic:ser_cli:set_param_name:slam_demo:test_turtle:tf_dynamic:tf_multi:tf_static:try_api:try_rosbag:turtle_follow:urdf_gazebo:urdf_rviz:use_msg:yahboom_car_gazebo
 -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCATKIN_DEVEL_PREFIX=/home/yxj/code/ros1_try/devel -DCMAKE_INSTALL_PREFIX=/home/yxj/code/ros1_try/install -G Unix Makefiles

@@ -54,7 +54,7 @@ CMAKE_BINARY_DIR = /home/yxj/code/ros1_try/build
 include action/CMakeFiles/_action_generate_messages_check_deps_addintsActionResult.dir/progress.make
 
 action/CMakeFiles/_action_generate_messages_check_deps_addintsActionResult:
-	cd /home/yxj/code/ros1_try/build/action && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py action /home/yxj/code/ros1_try/devel/share/action/msg/addintsActionResult.msg actionlib_msgs/GoalStatus:std_msgs/Header:action/addintsResult:actionlib_msgs/GoalID
+	cd /home/yxj/code/ros1_try/build/action && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py action /home/yxj/code/ros1_try/devel/share/action/msg/addintsActionResult.msg actionlib_msgs/GoalStatus:action/addintsResult:std_msgs/Header:actionlib_msgs/GoalID
 
 _action_generate_messages_check_deps_addintsActionResult: action/CMakeFiles/_action_generate_messages_check_deps_addintsActionResult
 _action_generate_messages_check_deps_addintsActionResult: action/CMakeFiles/_action_generate_messages_check_deps_addintsActionResult.dir/build.make

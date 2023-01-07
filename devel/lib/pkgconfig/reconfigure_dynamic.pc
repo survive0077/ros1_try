@@ -1,0 +1,8 @@
+prefix=/home/yxj/code/ros1_try/devel
+
+Name: reconfigure_dynamic
+Description: Description of reconfigure_dynamic
+Version: 0.0.0
+Cflags: -I/home/yxj/code/ros1_try/devel/include
+Libs: -L${prefix}/lib 
+Requires: 
