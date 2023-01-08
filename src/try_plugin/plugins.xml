@@ -1,0 +1,13 @@
+<!-- 
+    需要定位动态链接库，通过library标签下的path
+    申明子类与父类，通过子标签class
+ -->
+ <library path="lib/libpolygon_plugins_src">
+    <class type="polygon_plugins_ns::Triangle" base_class_type="polygon_base_ns::Polygon_Base">
+        <description>This is the plugin or Triangle</description>
+    </class>
+
+    <class type="polygon_plugins_ns::Square" base_class_type="polygon_base_ns::Polygon_Base">
+        <description>This is the plugin or Square</description>
+    </class>
+ </library>
