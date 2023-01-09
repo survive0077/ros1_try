@@ -1,0 +1,14 @@
+<launch>
+    <!-- 启动nodelet管理器 -->
+    <node pkg="nodelet" type="nodelet" name="mymanager" args="manager" output="screen"/>
+    <!-- 节点1 -->
+    <node pkg="nodelet" type="nodelet" name="n1" args="load nodelet_tutorial_math/Plus mymanager" output="screen" >
+        <param name="value" value="100" />
+    </node>
+    <!-- 节点2 -->
+    <node pkg="nodelet" type="nodelet" name="n2" args="load nodelet_tutorial_math/Plus mymanager" output="screen" >
+        <param name="value" value="-50" />
+        <!-- 订阅节点重映射 -->
+        <remap from="/n2/in" to="/n1/out" />
+    </node>
+</launch>
